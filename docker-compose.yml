@@ -5,6 +5,9 @@ consul:
     hostname: consul
     dns: 127.0.0.1
     privileged: true
+    environment:
+    - RUN_SERVER=true
+    - BOOTSTRAP_CONSUL=true
 
 mongodb:
     image: qnib/mongodb
