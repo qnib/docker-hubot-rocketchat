@@ -48,6 +48,7 @@ hubot:
     - ROCKETCHAT_USER=hubot
     - ROCKETCHAT_PASSWORD=hubot
     - BOT_NAME=bot
+    - HUBOT_GRAPHITE_URL=http://192.168.99.100:8181
     privileged: true
 
   
