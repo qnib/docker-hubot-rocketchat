@@ -30,7 +30,7 @@ RUN node -e "console.log(JSON.stringify('$EXTERNAL_SCRIPTS'.split(',')))" > exte
 	if $DEV; then coffee -c /home/hubot/node_modules/hubot-rocketchat/src/*.coffee; fi 
 ADD etc/supervisord.d/hubot.ini /etc/supervisord.d/
 ADD opt/qnib/hubot/bin/start.sh /opt/qnib/hubot/bin/
-CMD /opt/qnib/hubot/bin/start.sh
+CMD /opt/qnib/hubot/bin/start.sh 30
 ADD hubot-graphme/src/graph-me.coffee /home/hubot/node_modules/hubot-graphme/src/graph-me.coffee
 USER root
 RUN chown -R hubot: /home/hubot/node_modules/hubot-graphme
