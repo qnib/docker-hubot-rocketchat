@@ -1,5 +1,6 @@
 FROM qnib/d-node
 
+RUN apt-get install -y git
 #### Inspired by
 # https://github.com/RocketChat/hubot-rocketchat/blob/master/Dockerfile
 RUN npm install -g coffee-script yo generator-hubot  &&  \
@@ -12,12 +13,10 @@ USER hubot
 
 WORKDIR /home/hubot
 
-ENV DEV false
-
-ENV BOT_NAME "bot"
-ENV BOT_OWNER "Christian Kniep <christian@qnib.org>"
-ENV BOT_DESC "Hubot with rocketbot adapter"
-
+ENV DEV=false \
+    BOT_NAME="bot" \
+    BOT_OWNER="Christian Kniep <christian@qnib.org>" \
+    BOT_DESC="Hubot with rocketbot adapter"
 ENV EXTERNAL_SCRIPTS=hubot-diagnostics,hubot-help,hubot-google-images,hubot-google-translate,hubot-maps,hubot-rules,hubot-grafana,hubot-shipit,hubot-graphme,hubot-business-cat,hubot-tell
 
 RUN yo hubot --owner="$BOT_OWNER" --name="$BOT_NAME" --description="$BOT_DESC" --defaults && \
