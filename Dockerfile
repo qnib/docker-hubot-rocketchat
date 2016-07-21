@@ -1,6 +1,7 @@
 FROM qnib/d-node
 
-RUN apt-get install -y git
+RUN apt-get update \
+ && apt-get install -y git
 #### Inspired by
 # https://github.com/RocketChat/hubot-rocketchat/blob/master/Dockerfile
 RUN npm install -g coffee-script yo generator-hubot  &&  \
